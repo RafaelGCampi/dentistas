@@ -9,4 +9,8 @@ class Especialidades extends Model
 {
     use HasFactory;
     protected $table='especialidades';
+
+    public function dentistas(){
+        return $this->belongsToMany(Dentistas::class,'dentistas_especialidades','especialidade_id','dentista_id');
+    }
 }
