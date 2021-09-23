@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Redirect('/dentistas');
+});
+
+Route::prefix('/dentistas')->name('dentistas.')->group(function () {
+    Route::get('/', 'DentistasController@index')->name('index');
+    Route::post('/store', 'DentistasController@store');
+    Route::get('/list', 'DentistasController@list');
+    Route::delete('/delete/{dentistas}', 'DentistasController@destroy');
+    Route::get('/edit/{dentistas}', 'DentistasController@edit');
+    Route::get('/form', 'DentistasController@show');
+    Route::post('/search', 'DentistasController@search');
 });

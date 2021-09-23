@@ -15,10 +15,11 @@ class CreateDentistasTable extends Migration
     {
         Schema::create('dentistas', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
+            $table->string('nome',100);
             $table->string('email',100);
             $table->integer('cro');
-            $table->integer('cro_uf');
+            $table->char('cro_uf',2);
+            $table->timestamps();
         });
     }
 
