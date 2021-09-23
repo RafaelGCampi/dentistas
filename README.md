@@ -14,5 +14,5 @@
 ##    Gerar especialidades no banco de dados
     -php artisan db:seed EspecialidadesSeed
     
-##    Iniciar projeto
+##    Iniciar servidor
     -php artisan serve
